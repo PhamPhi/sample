@@ -22,8 +22,7 @@ module SessionsHelper
   # Method used to determine the sign out or not
   #
   def sign_out
-    current_user.update_attribute(:remember_token,
-                                  User.encrypt(user.new_remember_token))
+    current_user.update_attribute(:remember_token, User.encrypt(User.new_remember_token))
     cookies.delete(:remember_token)
     self.current_user = nil
   end

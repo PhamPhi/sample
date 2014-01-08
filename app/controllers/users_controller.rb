@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   # Notify to the controller just only 2 method update, edit.
-  before_action :signed_in_user, only: [:edit, :update]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
+  # Method create
+  #
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -14,6 +18,11 @@ class UsersController < ApplicationController
       #redirect the new page
       render 'new'
     end
+  end
+  #
+  # Method index
+  def index
+    @users =  User.paginate(page: params[:page])
   end
 
   # Constructor method, It's used to create the new User object...
@@ -53,8 +62,9 @@ class UsersController < ApplicationController
   #@param none
   #
   def destroy
-    sign_out
-    redirect_to root_url
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted."
+    redirect_to users_url
   end
 
 =begin
@@ -80,5 +90,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def admin_user
+
+      redirect_to(root_url) unless current_user.admin?
     end
 end

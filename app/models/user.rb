@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  # Private method used to create the way to remember token..
   private
     def create_remember_token
       # create the token

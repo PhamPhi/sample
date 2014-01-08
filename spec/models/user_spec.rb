@@ -20,6 +20,7 @@ describe User do
 
   it{ should be_valid }
 
+=begin
   #
   # Test: when user checked on the remember me? fuctionality of the sign_in form.
   #
@@ -27,6 +28,7 @@ describe User do
     before { @user.save }
     its(:remember_token){ should_not be_blank }
   end
+=end
 
   #
   # Test Case: when user input the null-name...
@@ -139,5 +141,18 @@ describe User do
   end
 
 
+  it { should respond_to(:authenticate) }
+  it { should respond_to(:admin) }
+
+  it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+    it { should be_admin }
+  end
 end
 
