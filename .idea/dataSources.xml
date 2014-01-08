@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3771172359">
+  <component name="DataSourceManagerImpl" format="xml" hash="1647413385">
     <data-source source="LOCAL" name="Rails Sample: development" uuid="3a225323-a4e9-42bb-8b0b-c7422d24e6f4">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/dbBlog_development</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc6dfcbdfd8dfd8dfd3df9d</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Sample: test" uuid="c6f55ab7-299f-46fd-b832-943bd5f0c733">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/dbBlog_test</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc6dfcbdfd8dfd8dfd3df9d</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Sample: cucumber" uuid="605ea034-ea29-4304-a7d7-879b9ae79c9b">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/dbBlogTest</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc6dfcbdfd8dfd8dfd3df9d</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Sample: production" uuid="29273401-f64d-4b5c-8d93-35c33318627c">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/dbBlog_production</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc6dfcbdfd8dfd8dfd3df9d</user-password>
       <libraries />
     </data-source>
   </component>

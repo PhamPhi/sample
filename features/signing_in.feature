@@ -11,5 +11,3 @@ Feature:  Signing in
      When the user submits valid signin information
      Then they should see their profile page
       And they  should see a signout link
-
-
