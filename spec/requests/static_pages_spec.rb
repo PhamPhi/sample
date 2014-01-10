@@ -11,6 +11,7 @@ describe "StaticPages" do
       it {  should have_title(full_title(''))}
       it {  should_not have_title('|Home') }
 
+      # TestCase for User who was signed in to our systems,.
      describe "for signed-in users" do
        let(:user) { FactoryGirl.create(:user) }
        before do
@@ -26,6 +27,18 @@ describe "StaticPages" do
          end
        end
 
+       describe "follower/following counts" do
+         let(:other_user) { FactoryGirls.create(:user) }
+         before do
+           other_user.follow!(user)
+           visit root_path
+         end
+
+         # It should have a link following users
+         # It should have a link about the users's followers...
+         it { should have_link("0 following", href: following_user_path(user)) }
+         it { should have_link("1 followers", href: following_user_path(user))}
+       end
      end
    end
 

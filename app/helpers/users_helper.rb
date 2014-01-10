@@ -8,9 +8,10 @@ module UsersHelper
 
       # checking the id of account which has existed into the Gravatar Site...
       gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-      url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-
+      #url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+      size = options[:size]
+      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
       # return the Avatar's account
-      image_tag(url, alt: user.name, class: "gravatar")
+      image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 end

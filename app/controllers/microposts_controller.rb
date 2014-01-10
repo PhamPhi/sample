@@ -1,17 +1,17 @@
 class MicropostsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user, only: :destroy
 
   def create
-  	@micropost = current_user.microposts.build(micropost_params)
-  	if @micropost.save
-  		flash[:success] = "Micropost created completely!..."
-  		redirect_to root_url
-  	else
-  		# handling the failed situtation of creating post..
+    @micropost = current_user.microposts.build(micropost_params)
+    if @micropost.save
+      flash[:success] = "Micropost created completely!..."
+      redirect_to root_url
+    else
+      # handling the failed situtation of creating post..
       @feed_items = []
-  		render 'static_pages/home'
-  	end
+      render 'static_pages/home'
+    end
   end
 
   def destroy
@@ -21,13 +21,13 @@ class MicropostsController < ApplicationController
 
   private
 
-  	def micropost_params
-  		params.require(:micropost).permit(:content)
-    end
+  def micropost_params
+    params.require(:micropost).permit(:content)
+  end
 
-    def correct_user
-      @micropost = Micropost.find_by(id: params[:id])
-      redirect_to root_url unless current_user?(@micropost.user)
-    end
+  def correct_user
+    @micropost = Micropost.find_by(id: params[:id])
+    redirect_to root_url unless current_user?(@micropost.user)
+  end
 
 end
