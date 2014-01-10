@@ -8,7 +8,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'psych'
 gem 'faker', '1.2.0'
 gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -22,7 +22,7 @@ group :test do
   gem 'capybara', '2.1.0'
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-  gem 'factory_girl_rails',' 4.2.1'
+  gem 'factory_girl_rails',' 4.3.0'
 end
 
 gem 'sass-rails', '4.0.1'
